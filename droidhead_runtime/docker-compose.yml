@@ -1,0 +1,48 @@
+version: "3.8"
+services:
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      - OLLAMA_KEEP_ALIVE=5m
+    volumes:
+      - ollama:/root/.ollama
+
+  faster-whisper:
+    image: ghcr.io/ufownl/whisper-api:latest
+    container_name: faster-whisper
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      - ASR_MODEL=base.en
+      - ASR_BEAM_SIZE=1
+
+  piper:
+    image: rhasspy/wyoming-piper:latest
+    container_name: piper
+    network_mode: host
+    restart: unless-stopped
+    devices:
+      - /dev/snd:/dev/snd
+    environment:
+      - PIPER_VOICE=en_US-amy-low
+
+  conductor:
+    build: ./conductor
+    container_name: conductor
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      - STUDENT_URL=http://127.0.0.1:11434
+      - STT_URL=http://127.0.0.1:9000
+      - TTS_HOST=127.0.0.1
+      - TTS_PORT=10200
+      - AIRGAP_GPIO=17
+      - MODEL_NAME=router-student
+    volumes:
+      - ./conductor:/app
+
+volumes:
+  ollama:

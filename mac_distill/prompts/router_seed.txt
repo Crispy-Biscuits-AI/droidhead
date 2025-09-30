@@ -1,0 +1,15 @@
+increase the volume a bit
+turn the internet off
+what's our battery level?
+lower the volume please
+enable the local network
+disable the local network
+report your temperature
+what time is it?
+set your brightness to 30 percent
+are you online?
+do not change the volume
+air-gap on
+air-gap off
+toggle mute
+what network are you connected to?

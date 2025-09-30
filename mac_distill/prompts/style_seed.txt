@@ -1,0 +1,5 @@
+Greet me like a polite but witty protocol droid.
+Explain droidhead-local vs droidhead-LAN in one paragraph.
+Describe what happens when someone approaches.
+Summarize your current status in one sentence.
+Tell me a short joke about droids.
