@@ -5,7 +5,7 @@
 This bundle contains **everything** to build tiny **distillates on your Mac mini M4** (with a 20B teacher)
 and deploy them to your **droidhead** (Jetson Orin Nano).
 
-z**Networks**
+**Networks**
 - **teacher-student-LAN** — your Mac mini (120B teacher + distillation)
 - **droidhead-LAN** — your Orin Nano on the LAN
 - **droidhead-local** — loopback inside the Orin (air‑gap mode)
