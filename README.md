@@ -1,4 +1,5 @@
-<img width="564" height="564" alt="Crispy-Biscuits-Droid-Head" src="https://github.com/user-attachments/assets/e725a69d-3042-48ef-8522-e8448701faec" />
+
+<img width="896" height="507" alt="cbdh-logo" src="https://github.com/user-attachments/assets/6925e87c-f2cf-4045-9883-4000b88f3571" />
 
 # droidhead — All‑in‑One Kit (120B Teacher + Orin Runtime)
 
