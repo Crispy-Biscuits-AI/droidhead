@@ -1,5 +1,5 @@
+<img width="576" height="326" alt="cbdh-logo-01" src="https://github.com/user-attachments/assets/e1f8b88a-a169-439e-96a5-a1e4ed89fa7c" />
 
-<img width="896" height="507" alt="cbdh-logo" src="https://github.com/user-attachments/assets/6925e87c-f2cf-4045-9883-4000b88f3571" />
 
 # droidhead — All‑in‑One Kit (120B Teacher + Orin Runtime)
 
