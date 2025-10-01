@@ -13,3 +13,4 @@ Folders:
 - `droidhead_runtime/` — docker stack for the Orin Nano (Ollama + STT + TTS + conductor).
 
 Start by reading `mac_distill/README.md`, then deploy to the Orin with `make deploy` from `mac_distill/`.
+<img width="564" height="564" alt="Crispy-Biscuits-Droid-Head" src="https://github.com/user-attachments/assets/e725a69d-3042-48ef-8522-e8448701faec" />
