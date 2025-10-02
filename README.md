@@ -1,6 +1,6 @@
 “Crispy Biscuits is where we bake new AI minds — experiments in distillation, orchestration, and droidhead design.”
 
-# CrispyBiscuits.ai: Droid Head — gpt-oss-20b Teacher-Student "trainging-bed".
+# CrispyBiscuits.ai: Droid Head project — gpt-oss-20b Teacher-Student "trainging-bed".
 
 This repo helps you collect traces from a **20B teacher** running on your Mac mini (Docker) and fine‑tune **tiny students** on Apple Silicon using **MLX** (Metal). Students target two roles:
 
