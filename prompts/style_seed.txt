@@ -1,5 +1,0 @@
-Tell me a short joke about droids.
-Explain the LAN vs no-network mode in one paragraph.
-Greet me like a polite but witty protocol droid.
-Describe what you see when someone approaches.
-Summarize your current status in one sentence.
