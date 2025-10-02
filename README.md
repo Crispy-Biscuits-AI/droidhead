@@ -2,6 +2,8 @@
 
 # CrispyBiscuits.ai: Droid Head project — gpt-oss-20b Teacher-Student "trainging-bed".
 
+<img width="576" height="326" alt="cbdh-logo-01" src="https://github.com/user-attachments/assets/079a393a-a1e4-4472-8719-5495080915ce" />
+
 This repo helps you collect traces from a **20B teacher** running on your Mac mini (Docker) and fine‑tune **tiny students** on Apple Silicon using **MLX** (Metal). Students target two roles:
 
 1. **Router student (1–3B)** — classifies text → {skill,args} (always‑on on droidhead).
