@@ -1,12 +1,12 @@
-# Technical Diagram Prompt Template (copy/paste + fill the brackets)
+# Power Train Design
 
 **Goal**
-Create a **[diagram type: schematic / wiring diagram / block diagram / exploded view / mechanical drawing / network topology / flowchart / PCB layout]** for **[system/name]** that a **[audience: technician / engineer / hobbyist / executive]** can read at a glance.
+Create a wiring diagram for power train that an engineer can read at a glance.
 
 **Scope & Content**
 
-* Show: **[key subsystems/components to include]**
-* Exclude: **[what to omit to reduce clutter]**
+* Show: key parts/components/relationships
+* Exclude: hallucinations, unchecked facts, random characters and other layout defects
 * Level of detail: **[high / medium / low]** with **[exact callouts you must include]**
 * Data sources (truth): **[BOM list, specs, voltages, pinouts, wire gauges, dimensions]**
 
