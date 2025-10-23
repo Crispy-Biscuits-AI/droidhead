@@ -1,0 +1,147 @@
+# Technical Diagram Prompt Template (copy/paste + fill the brackets)
+
+**Goal**
+Create a **[diagram type: schematic / wiring diagram / block diagram / exploded view / mechanical drawing / network topology / flowchart / PCB layout]** for **[system/name]** that a **[audience: technician / engineer / hobbyist / executive]** can read at a glance.
+
+**Scope & Content**
+
+* Show: **[key subsystems/components to include]**
+* Exclude: **[what to omit to reduce clutter]**
+* Level of detail: **[high / medium / low]** with **[exact callouts you must include]**
+* Data sources (truth): **[BOM list, specs, voltages, pinouts, wire gauges, dimensions]**
+
+**Style & Conventions**
+
+* Projection: **[orthographic / isometric / top-down]**
+* Line style: **uniform stroke 2–3pt; no sketch/glow/bevel**
+* Fonts: **[font or “clean sans”]**, sizes **[title X pt, labels Y pt, notes Z pt]**, **UPPERCASE for signals**
+* Color coding: **[color → meaning map; e.g., red=V+, black=GND, blue=signal, green=chassis]**
+* Symbols/standards to follow: **[IEC/IEEE/ANSI/JIC, or “standard electrical schematic symbols”]**
+* Label grammar: **component → rating → function** (e.g., “DC-DC 12→5 V 3 A — Jetson Aux 5 V”)
+
+**Layout Rules**
+
+* Logical flow **[left→right | top→bottom]**
+* Group by **[power / control / I/O]** using **[sub-panels/frames]**
+* Maintain **[min spacing]** between nodes; align **[ports/buses]**
+* Include **legend**, **title block** (project, rev, date), **north-arrow** if relevant
+
+**Accuracy Constraints**
+
+* Units: **[metric/imperial]**, scale **[e.g., 1:2]**
+* Electrical: show **[voltages, currents, fuses, wire gauges, connectors]**
+* Mechanical: show **[critical dimensions, hole sizes, tolerances]**
+
+**Annotations & Callouts**
+
+* Numbered callouts **[1..N]** with **[short action notes or specs]**
+* Safety icons where **[over-voltage, hot surfaces, ESD]**
+* Test points labeled **TP-[#]** and ground symbol **[type]**
+
+**Branding & Extras**
+
+* Place logo **[top-right / bottom-left]** sized **[px/mm]**, caption **[project name]**
+* Background: **white or light gray**, faint **10 mm grid** optional
+* Include **QR** link label **[docs URL or Git commit]** (as text if QR not supported)
+
+**Output Specs**
+
+* Aspect ratio **[e.g., 3:2 / 4:3 / A4 portrait]**
+* Resolution **[e.g., 4096×3072 px]**; also export **SVG/PDF** if supported
+* Background **[transparent/white]**; margins **[mm]**
+* Deliver **two variants**: (1) print-clean, (2) web with subtle color accents
+
+**Negative Instructions (very important)**
+Do **not** use: drop shadows, gradients, 3D, glossy effects, watermarks, stock icons, extraneous cables, random labels, perspective distortion, illegible tiny text.
+
+**Checklist (must include in the render)**
+
+* Title block (project, rev, date)
+* Legend and color map
+* Component labels + ratings
+* Connectors + pin names
+* Fuse values and wire gauges
+* Test points and measurement arrows
+* Safety notes
+
+**Render now.**
+
+---
+
+## Quick “fill-and-go” variants for common diagram types
+
+### 1) Wiring / Power Schematic
+
+> Create a **clean electrical schematic** for **[project]**. Include **battery [chemistry, V, Ah]**, **BMS [cells/series rating]**, **PDB [model]**, **DC-DC [in/out, A]**, **Jetson Orin Nano [power spec]**, **fan [voltage/current]**, **fuse [A]**, **switch [spec]**, **connectors [types]**, and **wire gauges per segment**.
+> Use **IEC/IEEE symbols**, red=V+, black=GND, blue=signals, green=chassis. Flow **left→right** from source to load. Label test points **TP-1..TP-N** with expected voltages. Include a legend, title block, and safety notes (reverse polarity, ESD). Output **4096×3072 px PNG** + **SVG**, white background, no shadows.
+
+### 2) Block Diagram (System Architecture)
+
+> Generate a **top-level block diagram** of **[system]** showing **Power**, **Compute**, **Sensors/Actuators**, **Comms**, and **Cooling**. Use uniform rounded rectangles, arrows with direction, and port labels. Color groups subtly, provide a legend and title block. **A4 landscape**, **transparent background** variant too.
+
+### 3) Exploded Assembly View
+
+> Produce an **exploded isometric view** of **[assembly]** with stack order, standoffs, screws, and keep-out zones. Callouts show **part name, size, material, qty**. Keep lines crisp (no textures). **3508×2480 px**, white background.
+
+### 4) Panel/Label Layout
+
+> Draw a **front panel layout** with hole diameters, center-to-center spacing, and clearance zones. Annotate with **engraving text** and **iconography** (flat, 1-stroke). Use **mm**, **1:1 scale**, **PDF/SVG**.
+
+---
+
+## Filled example for your Droid Head power train (paste as-is and tweak)
+
+**Diagram type:** Wiring schematic
+**System:** Crispy Biscuits AI — Droid Head (Power System)
+**Audience:** Technician assembling the prototype
+
+**Include:**
+
+* Battery: **Bioenno BLF-1206A LiFePO₄, 12 V 6 Ah**
+* BMS: **Daly 4S (not 8S) with balancing**
+* PDB: **Mateksys PDB-HEX**
+* DC-DC: **PlusRoc PR-4A061, 12/24 V → 5 V 3 A**
+* Jetson: **Orin Nano Dev Kit (barrel or carrier 5 V rail; note in diagram)**
+* Cooling: **Noctua 40 mm [voltage/current]**
+* Protection: **10 A inline fuse**, **SPST toggle (DaierTek KCD1)**
+* Wire gauges: **16 AWG battery→PDB**, **20–22 AWG signal/fan**, **20 AWG Jetson 5 V**
+* Test points: **TP-1 battery ~13.2 V**, **TP-2 post-fuse**, **TP-3 5 V rail**, **TP-4 fan**
+
+**Style:**
+
+* Orthographic, left→right flow (Source → Protection → BMS/PDB → Converters → Loads)
+* Red=V+, Black=GND, Blue=signal, Green=chassis
+* Font: clean sans; Title 36 pt, Labels 20 pt, Notes 16 pt
+* Symbols: IEC electrical, clear fuse and switch icons
+
+**Layout rules:**
+
+* Group frames: **Power Source**, **Protection**, **Regulation**, **Loads**
+* Align bus bars; 16 px spacing minimum; keep labels outside wires
+* Legend + Title block (Project, Rev A, Date **[today’s date]**)
+
+**Accuracy:**
+
+* Show **expected voltages**, **fuse value**, **wire gauges**, and **connector types**
+* Note: **Use 4S BMS only; 8S requires different pack**
+
+**Branding & Output:**
+
+* Logo: **top-right** (Crispy Biscuits AI / Droid Head)
+* PNG **4096×3072**, plus **SVG**; white background; provide variant with transparent background
+* Negative: **no 3D, no gradients, no shadows, no bevels, no extra wires**
+
+**Render now.**
+
+---
+
+## Tips that noticeably improve results
+
+* **Lead with constraints.** Put “Do NOT use gradients/shadows/3D” early.
+* **Enforce standards.** Name the symbol standard (IEC/IEEE) and label grammar.
+* **Specify flow & grouping.** “Left→right, grouped by power/control” reduces messy layouts.
+* **Give a color map.** Models reliably honor simple color→meaning rules.
+* **Ask for two outputs.** High-res PNG *and* SVG/PDF for editing.
+* **Use numbered callouts + legend.** Increases clarity and consistency.
+
+If you want, I can drop your exact parts list into the filled example and produce three ready-to-run prompts (schematic, block diagram, and panel layout) specifically tuned to your BOM.
