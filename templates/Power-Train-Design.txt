@@ -8,23 +8,25 @@ Create a wiring diagram for power train that an engineer can read at a glance.
 * Show: key parts/components/relationships
 * Exclude: hallucinations, unchecked facts, random characters and other layout defects
 * Level of detail: high with callouts as needed
+* Data sources (truth): 
 
+This CSV formatted table is our current data source.
 
-
-* Data sources (truth): **[BOM list, specs, voltages, pinouts, wire gauges, dimensions]**
-
-
-
-
+Component,Model and Type,Brand and Model,Notes
+Battery Pack,12V–19V LiFePO₄ 4–6Ah,Bioenno BLF-1206A LiFePO₄,Powers Jetson + sensors for 1–2 hours
+Battery Management System,Daly 3S or 4S BMS,Daly 8S24V40A,Protects and balances battery cells
+DC-DC Step-down Converter 12–19V to 5V/3A,PlusRoc PR‑4A061,Waterproof 12V/24V → 5V DC‑DC Converter,Power for USB accessories
+Power Distribution Board,Matek PDB or custom PCB,Mateksys PDB-HEX,Routes power to regulators + Jetson
+Switch/Fuse,10A inline fuse + toggle,DaierTek ON Off Round Rocker Switches SPST 20mm Mini 12 Volt DC Mini Circle,Toggle Switch 12V for Car Automotive RV 2 Pin Switch 120V Wired KCD1,For safety and shutdown
 
 **Style & Conventions**
 
-* Projection: **[orthographic / isometric / top-down]**
-* Line style: **uniform stroke 2–3pt; no sketch/glow/bevel**
-* Fonts: **[font or “clean sans”]**, sizes **[title X pt, labels Y pt, notes Z pt]**, **UPPERCASE for signals**
-* Color coding: **[color → meaning map; e.g., red=V+, black=GND, blue=signal, green=chassis]**
-* Symbols/standards to follow: **[IEC/IEEE/ANSI/JIC, or “standard electrical schematic symbols”]**
-* Label grammar: **component → rating → function** (e.g., “DC-DC 12→5 V 3 A — Jetson Aux 5 V”)
+* Projection: top-down view
+* Line style: uniform stroke 2–3pt; no glow
+* Fonts: clean sans, sizes, title X pt, labels Y pt, notes Z pt]**, UPPERCASE for signals
+* Color coding: red=V+, black=GND, blue=signal, green=chassis
+* Symbols/standards to follow: “standard electrical schematic symbols”
+* Label grammar: component → rating → function (e.g., “DC-DC 12→5 V 3 A — Jetson Aux 5 V”)
 
 **Layout Rules**
 
