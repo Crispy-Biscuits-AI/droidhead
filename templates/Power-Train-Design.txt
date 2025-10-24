@@ -7,8 +7,15 @@ Create a wiring diagram for power train that an engineer can read at a glance.
 
 * Show: key parts/components/relationships
 * Exclude: hallucinations, unchecked facts, random characters and other layout defects
-* Level of detail: **[high / medium / low]** with **[exact callouts you must include]**
+* Level of detail: high with callouts as needed
+
+
+
 * Data sources (truth): **[BOM list, specs, voltages, pinouts, wire gauges, dimensions]**
+
+
+
+
 
 **Style & Conventions**
 
