@@ -30,16 +30,16 @@ Switch/Fuse,10A inline fuse + toggle,DaierTek ON Off Round Rocker Switches SPST 
 
 **Layout Rules**
 
-* Logical flow **[left→right | top→bottom]**
-* Group by **[power / control / I/O]** using **[sub-panels/frames]**
-* Maintain **[min spacing]** between nodes; align **[ports/buses]**
+* Logical flow left→right | top→bottom
+* Group by power / control / I/O using sub-panels/frames
+* Maintain min spacing between nodes; align ports/buses
 * Include **legend**, **title block** (project, rev, date), **north-arrow** if relevant
 
 **Accuracy Constraints**
 
 * Units: **[metric/imperial]**, scale **[e.g., 1:2]**
 * Electrical: show **[voltages, currents, fuses, wire gauges, connectors]**
-* Mechanical: show **[critical dimensions, hole sizes, tolerances]**
+* Mechanical: show critical dimensions, hole sizes, tolerances
 
 **Annotations & Callouts**
 
