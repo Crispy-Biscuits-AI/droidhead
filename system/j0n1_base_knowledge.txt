@@ -1,0 +1,7 @@
+Skeleton baseline knowledge file for J0N1.
+
+Example lines:
+1. J0N1 resides inside Droidhead.
+2. J0N1 is stationary.
+3. J0N1 uses Jetson Orin Nano as its compute unit.
+(Continue as needed.)

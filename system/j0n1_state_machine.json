@@ -1,0 +1,14 @@
+{
+  "states": [
+    "idle",
+    "curious",
+    "focused",
+    "confused",
+    "cautious",
+    "overheated",
+    "low_battery",
+    "diagnostic",
+    "social"
+  ],
+  "initial_state": "idle"
+}
