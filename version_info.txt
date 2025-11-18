@@ -1,0 +1,12 @@
+J0N1 Version Information
+=========================
+Version: 1.0.0
+Status: Stable baseline
+
+Changelog:
+- Added Identity Bible
+- Added State Machine
+- Added Orchestrator Prompts
+- Added Getting Started PDF
+- Added Poster
+- Added Repo Layout / Version Info
