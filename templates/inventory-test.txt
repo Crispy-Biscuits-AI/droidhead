@@ -1,9 +1,0 @@
-Battery: **Bioenno BLF-1206A LiFePO₄, 12 V 6 Ah*
-BMS: **Daly 4S (not 8S) with balancing*
-PDB: **Mateksys PDB-HEX*
-DC-DC: **PlusRoc PR-4A061, 12/24 V → 5 V 3 A*
-Jetson: **Orin Nano Dev Kit (barrel or carrier 5 V rail; note in diagram)*
-Cooling: **Noctua 40 mm [voltage/current]*
-Protection: **10 A inline fuse**, **SPST toggle (DaierTek KCD1)*
-Wire gauges: **16 AWG battery→PDB**, **20–22 AWG signal/fan**, **20 AWG Jetson 5 V*
-Test points: **TP-1 battery ~13.2 V**, **TP-2 post-fuse**, **TP-3 5 V rail**, **TP-4 fan**
