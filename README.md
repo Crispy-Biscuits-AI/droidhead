@@ -1,10 +1,3 @@
-Absolutely — here is a **single, clean, ready-to-paste README.md file** containing everything you need.
-This version is carefully formatted for GitHub, uses clean Markdown, and is portfolio-quality.
-
-You can copy/paste it directly into your repo.
-
----
-
 # 📘 **README.md — J0N1 (Johnny Number One)**
 
 ### *Embodied AI Assistant for the Crispy Biscuits AI: Droidhead Project*
