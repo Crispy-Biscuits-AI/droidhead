@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   postgres:
     image: postgres:15
@@ -41,20 +39,11 @@ services:
       - n8n_data:/home/node/.n8n
 
   gpt-oss:
-    # Replace with the exact GPT-OSS image you use
-    # Example if you're using a generic OpenAI-compatible gateway:
-    image: ghcr.io/gpt-oss/gpt-oss:latest
+    image: gpt-oss-20b:latest   # <— your local image
     restart: unless-stopped
     ports:
-      - "8080:8080"
-    environment:
-      # Adjust these to your actual config (model path, weights, etc.)
-      GPT_OSS_MODEL: "gpt-oss:20b"
-      GPT_OSS_API_KEY: "local-dev-key" # used just as a placeholder token
-    volumes:
-      - gpt_oss_models:/models
+      - "8080:8080"                         # exposed on localhost:8080 in Docker Desktop
 
 volumes:
   n8n_postgres_data:
   n8n_data:
-  gpt_oss_models:
