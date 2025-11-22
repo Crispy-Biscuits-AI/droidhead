@@ -1,0 +1,73 @@
+{
+  "name": "GPT-OSS Chat Webhook",
+  "nodes": [
+    {
+      "id": "WebhookNode",
+      "name": "Incoming Chat",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [300, 300],
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "gpt-oss/chat",
+        "responseMode": "onReceived",
+        "options": {
+          "responseContentType": "application/json"
+        }
+      }
+    },
+    {
+      "id": "HttpToGptOss",
+      "name": "GPT-OSS Completion",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 2,
+      "position": [600, 300],
+      "parameters": {
+        "url": "http://gpt-oss:8080/v1/chat/completions",
+        "method": "POST",
+        "jsonParameters": true,
+        "authentication": "none",
+        "options": {},
+        "bodyParametersJson": "={\n  \"model\": \"gpt-oss:20b\",\n  \"messages\": [\n    {\n      \"role\": \"system\",\n      \"content\": \"You are Konky, the Crispy Biscuits AI assistant running on GPT-OSS. Be helpful, clear, and occasionally roast Logan gently.\"\n    },\n    {\n      \"role\": \"user\",\n      \"content\": $json[\"prompt\"]\n    }\n  ]\n}"
+      }
+    },
+    {
+      "id": "ReturnNode",
+      "name": "Return to Caller",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [900, 300],
+      "parameters": {
+        "responseBody": "={\n  \"answer\": $json[\"choices\"][0][\"message\"][\"content\"],\n  \"model\": $json[\"model\"]\n}"
+      }
+    }
+  ],
+  "connections": {
+    "Incoming Chat": {
+      "main": [
+        [
+          {
+            "node": "GPT-OSS Completion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GPT-OSS Completion": {
+      "main": [
+        [
+          {
+            "node": "Return to Caller",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "gpt-oss-chat-001"
+}
