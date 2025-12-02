@@ -45,6 +45,20 @@ services:
     volumes:
       - gptoss_data:/data
 
+  teacher:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      - gpt-oss
+    environment:
+      GPT_OSS_BASE_URL: "http://gpt-oss:8000/v1"
+      TEACHER_MODEL_NAME: "gpt-oss:20b"
+      TEACHER_PORT: "8000"
+    ports:
+      - "8001:8000"
+
 volumes:
   n8n_postgres_data:
   n8n_data:
