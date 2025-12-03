@@ -1,65 +1,82 @@
 services:
   postgres:
-    image: postgres:15
+    image: postgres:16
+    container_name: droidhead-postgres
     restart: unless-stopped
     environment:
       POSTGRES_USER: n8n
       POSTGRES_PASSWORD: n8n
       POSTGRES_DB: n8n
     volumes:
-      - n8n_postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - droidhead-net
+    labels:
+      com.crispy-biscuits.project: "crispy-biscuits-ai"
+      com.crispy-biscuits.stack: "droidhead"
 
   n8n:
     image: n8nio/n8n:latest
+    container_name: droidhead-n8n
     restart: unless-stopped
     depends_on:
       - postgres
-    ports:
-      - "5678:5678"
+      - teacher-service
     environment:
+      # Core n8n env
       N8N_BASIC_AUTH_ACTIVE: "true"
-      N8N_BASIC_AUTH_USER: "logan"
-      N8N_BASIC_AUTH_PASSWORD: "change-this"
+      N8N_BASIC_AUTH_USER: "admin"
+      N8N_BASIC_AUTH_PASSWORD: "change-me"
+
+      # DB
+      DB_TYPE: postgresdb
+      DB_POSTGRESDB_HOST: postgres
+      DB_POSTGRESDB_PORT: 5432
+      DB_POSTGRESDB_DATABASE: n8n
+      DB_POSTGRESDB_USER: n8n
+      DB_POSTGRESDB_PASSWORD: n8n
+
+      # Expose n8n URL (adjust host/port as needed)
       N8N_HOST: "localhost"
       N8N_PORT: 5678
       N8N_PROTOCOL: "http"
 
-      DB_TYPE: "postgresdb"
-      DB_POSTGRESDB_HOST: "postgres"
-      DB_POSTGRESDB_PORT: 5432
-      DB_POSTGRESDB_DATABASE: "n8n"
-      DB_POSTGRESDB_USER: "n8n"
-      DB_POSTGRESDB_PASSWORD: "n8n"
+      # Teacher-service URL for workflows
+      TEACHER_SERVICE_URL: "http://teacher-service:8000"
 
-      N8N_EDITOR_BASE_URL: "http://localhost:5678"
-      N8N_PUBLIC_URL: "http://localhost:5678"
-
+    ports:
+      - "5678:5678"
     volumes:
       - n8n_data:/home/node/.n8n
+    networks:
+      - droidhead-net
+    labels:
+      com.crispy-biscuits.project: "crispy-biscuits-ai"
+      com.crispy-biscuits.stack: "droidhead"
 
-  gpt-oss:
-    image: docker.io/org/gpt-oss:20b
+  teacher-service:
+    build:
+      context: ./teacher-service
+    container_name: droidhead-teacher-service
     restart: unless-stopped
+    environment:
+      # Example env — adjust to your actual teacher-service contract
+      LOG_LEVEL: "info"
+      GPT_OSS_API_BASE: "http://gpt-oss:11434"   # or wherever GPT-OSS lives
+      GPT_OSS_MODEL: "gpt-oss:20b"
+      SERVICE_PORT: "8000"
     ports:
       - "8000:8000"
-    volumes:
-      - gptoss_data:/data
+    networks:
+      - droidhead-net
+    labels:
+      com.crispy-biscuits.project: "crispy-biscuits-ai"
+      com.crispy-biscuits.stack: "droidhead"
 
-  teacher:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: unless-stopped
-    depends_on:
-      - gpt-oss
-    environment:
-      GPT_OSS_BASE_URL: "http://gpt-oss:8000/v1"
-      TEACHER_MODEL_NAME: "gpt-oss:20b"
-      TEACHER_PORT: "8000"
-    ports:
-      - "8001:8000"
+networks:
+  droidhead-net:
+    driver: bridge
 
 volumes:
-  n8n_postgres_data:
+  postgres_data:
   n8n_data:
-  gptoss_data:
